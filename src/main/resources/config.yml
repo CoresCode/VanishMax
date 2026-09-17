@@ -1,0 +1,48 @@
+# ╔══════════════════════════════════════════════════════════╗
+# ║                  Vanish Max Configuration                 ║
+# ╚══════════════════════════════════════════════════════════╝
+#
+# HOW THE HIERARCHY WORKS
+# ───────────────────────
+# Each level has a "rank" number. Higher number = higher rank.
+# A vanished player is:
+#   - INVISIBLE to players whose rank is LOWER than theirs
+#   - FULLY VISIBLE (with [Vanish] tag) to players whose rank is EQUAL or HIGHER
+#
+# The permission node for each level is:  vanishmax.<name>
+# Example: level named "moderator" → permission node is  vanishmax.moderator
+#
+# ADDING A NEW LEVEL
+# ──────────────────
+# Add a new entry under `levels` with a unique name and rank.
+# Then assign  vanishmax.<name>  in LuckPerms to the desired group.
+# Example — adding "owner" above developer:
+#   owner:
+#     rank: 50
+#
+# REMOVING A LEVEL
+# ────────────────
+# Delete the entry and restart the server (or /vanishmax reload).
+
+levels:
+
+  moderator:
+    rank: 1
+
+  admin:
+    rank: 2
+
+  headadmin:
+    rank: 3
+
+  developer:
+    rank: 4
+
+# ──────────────────────────────────────────────────────────
+# Messages (supports & colour codes)
+# ──────────────────────────────────────────────────────────
+messages:
+  vanish-on:  "&aYou are now in vanish mode."
+  vanish-off: "&aYou are no longer in vanish mode."
+  no-permission: "&cYou don't have permission to use /invis."
+  player-only: "&cOnly players can use this command."
